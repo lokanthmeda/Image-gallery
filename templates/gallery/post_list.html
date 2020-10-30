@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if gallery %}
+<p>
+  <a href="{% url 'gallery:create' %}">New</a>
+</p>
+<p>Click Here For <a href="{% url 'gallery:list' %}">Home</a> Page</p>
+
+
+  {% for post in gallery %}
+    <li><a href="{% url 'gallery:detail' post.pk %}">{{ post.category }}</a></li>
+  <a href="{% url 'gallery:delete' post.pk %}">Delete</a>
+  {% endfor %}
+
+{% else %}
+<p>There is No Images, If You want to upload any images <a href="{% url 'gallery:create' %}"> click here</a> </p>
+{% endif %}
+
+{% endblock %}

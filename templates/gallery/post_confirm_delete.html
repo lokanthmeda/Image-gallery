@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<p>Click Here For <a href="{% url 'gallery:list' %}">Home</a> Page</p>
+
+  {% for post in dat %}
+    <li><a href="{% url 'gallery:detail' post.pk %}">{{ post.category }}</a></li>
+  <a href="{% url 'gallery:delete' post.pk %}">Delete</a>
+  {% endfor %}
+
+
+
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<p>Click Here For <a href="{% url 'gallery:list' %}">Home</a> Page</p>
+
+<h1>{{ post.category }}</h1>
+
+<ul>
+  {% for image in post.image_set.all %}
+    <li><img src="{{ image.file.url }}" alt="" width="460" height="345"></li>
+  {% endfor %}
+</ul>
+<a href="{% url 'gallery:list' %}">Home</a>
+
+{% endblock %}

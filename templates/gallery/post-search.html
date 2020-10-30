@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<p>Click Here For <a href="{% url 'gallery:list' %}">Home</a> Page</p>
+
+{% for i in data %}
+    <li><a href="{% url 'gallery:detail' i.pk %}">{{ i.category }}</a></li>
+{% endfor %}
+
+{% endblock %}
+
